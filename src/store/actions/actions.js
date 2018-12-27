@@ -31,10 +31,18 @@ export const sub = payload => {
   };
 };
 
-export const addResult = payload => {
+export const saveResult = payload => {
   return {
     type: ADD_RESULT,
     value: payload.value
+  };
+};
+
+export const addResult = payload => {
+  return dispatch => {
+    setTimeout(() => {
+      dispatch(saveResult(payload));
+    }, 2000);
   };
 };
 export const deleteResult = payload => {
