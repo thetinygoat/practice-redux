@@ -13,6 +13,8 @@ class App extends Component {
           add={this.props.handleAdd}
           sub={this.props.handleSub}
         />
+        <button>Add result</button>
+        <ul />
       </div>
     );
   }
@@ -20,7 +22,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    ctr: state.counter
+    ctr: state.ctr.counter,
+    res: state.res.results
   };
 };
 const mapDispatchToProps = dispatch => {
