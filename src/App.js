@@ -1,5 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import {
+  increment,
+  decrement,
+  add,
+  sub,
+  addResult,
+  deleteResult
+} from "./store/actions/actions";
 import Counter from "./Components/Counter/Counter";
 
 class App extends Component {
@@ -36,12 +44,12 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    handleIncrement: () => dispatch({ type: "INCREMENT" }),
-    handleDecrement: () => dispatch({ type: "DECREMENT" }),
-    handleAdd: () => dispatch({ type: "ADD", value: 5 }),
-    handleSub: () => dispatch({ type: "SUB", value: 5 }),
-    handleResAdd: result => dispatch({ type: "ADD_RESULT", value: result }),
-    handleResDel: id => dispatch({ type: "DELETE_RESULT", id: id })
+    handleIncrement: () => dispatch(increment()),
+    handleDecrement: () => dispatch(decrement()),
+    handleAdd: () => dispatch(add({ value: 5 })),
+    handleSub: () => dispatch(sub({ value: 5 })),
+    handleResAdd: result => dispatch(addResult({ value: result })),
+    handleResDel: id => dispatch(deleteResult({ id: id }))
   };
 };
 
